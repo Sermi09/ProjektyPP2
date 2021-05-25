@@ -2,6 +2,8 @@
 #include "VectoredList.h"
 using namespace std;
 
+//Zadanie od Pauliny :)
+
 int main() {
 
     //MOJE
@@ -13,7 +15,7 @@ int main() {
     for(int i=0;i<20;++i){
         l_1.push_back(to_string(i));
     }
-    for(int i=6;i<17;++i){
+    for(int i=10;i<30;++i){
         l_2.push_back(to_string(i));
     }
     for(int i=0;i<l_1.get_size();++i){
@@ -24,34 +26,61 @@ int main() {
         std::cout<<l_2[i]<<" ";
     }
     std::cout<<std::endl;
-    std::cout<<"(l_1+l_2)[2]: "<<(l_1+l_2)[2] << (l_1+l_2)[22] <<std::endl;
+    std::cout<<"(l_1+l_2)[4]: "<<(l_1+l_2)[4] <<std::endl<<std::endl;
 
     //TEST 2 (konstruktor przenoszący)
 
-    std::cout<<"[TEST 2]"<<std::endl;
-    VectoredList&& ref = VectoredList(l_1);
-    std::cout<<"ref: ";
-    for(int i=0; i<ref.get_size();++i){
-        std::cout<<ref[i]<<" ";
+    std::cout<<"[TEST 2]:"<<std::endl;
+    VectoredList l_3;
+    for(int i=0;i<15;++i){
+        l_3.push_back(to_string(i));
+    }
+    std::cout<<"l_3: ";
+    for(int i=0;i<l_3.get_size();++i){
+        std::cout<<l_3[i]<<" ";
     }
     std::cout<<std::endl;
+    const VectoredList l_4 = move(l_3);
+    std::cout<<"l_4: ";
+    for(int i=0;i<l_4.get_size();++i){
+        std::cout<<l_4[i]<<" ";
+    }
+    std::cout<<std::endl<<std::endl;
+
 
     //TEST 3 (przenoszący +)
+
     std::cout<<"[TEST 3]: "<<std::endl;
-    VectoredList ref_1(ref);
-    std::cout<<"ref_1: ";
-    for(int i=0; i<ref_1.get_size();++i){
-        std::cout<<ref_1[i]<<" ";
+    VectoredList l_5;
+    for(int i=0;i<15;++i){
+        l_5.push_back(to_string(i));
+    }
+    std::cout<<"l_5: ";
+    for(int i=0;i<l_5.get_size();++i){
+        std::cout<<l_5[i]<<" ";
     }
     std::cout<<std::endl;
+    VectoredList l_6;
+    l_6 = move(l_5);
+    std::cout<<"l_6: ";
+    for(int i=0;i<l_6.get_size();++i){
+        std::cout<<l_6[i]<<" ";
+    }
+    std::cout<<std::endl<<std::endl;
 
     //TEST 4 (assign)
     std::cout<<"[TEST 4]: "<<std::endl;
     std::vector<string> vector1{"q","w","e","r","t","y"};
-    l_2.assign(vector1);
-    std::cout<<std::endl<<"l_1";
-    for(int i=0; i<l_2.get_size();++i){
-        std::cout<<l_2[i]<<" ";
+    std::cout<<"vector1: ";
+    for(auto &it: vector1){
+        cout<<it<<" ";
+    }
+    std::cout<<std::endl;
+    VectoredList l_7;
+    l_7.assign(move(vector1));
+    std::cout<<"l_7: ";
+    for (size_t index = 0; index < l_7.get_size();++index){
+        std::cout<<l_7[index]<<" ";
     }
     std::cout<<std::endl;
 
