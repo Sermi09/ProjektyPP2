@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/kijpi/CLionProjects/untitled33/VectoredList.cpp
+VectoredList.h
+C:/Users/kijpi/CLionProjects/untitled33/VectoredList.h
+utility
+-
+
+C:/Users/kijpi/CLionProjects/untitled33/VectoredList.h
+iostream
+-
+string
+-
+utility
+-
+vector
+-
+
+C:/Users/kijpi/CLionProjects/untitled33/main.cpp
+iostream
+-
+VectoredList.h
+C:/Users/kijpi/CLionProjects/untitled33/VectoredList.h
+
